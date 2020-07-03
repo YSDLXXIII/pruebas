@@ -26,6 +26,36 @@
     <div class="container">
 
 
+    <div class="row">
+            <div class="col-6">
+                <div class="p-3 mb-2 bg-dark text-white">
+                    <h5>Formulario GET</h5>
+
+                    <form class="form-inline" method="POST" action="#">
+                        <div class="form-group mb-2">
+                            <label for="staticEmail2" class="sr-only">Email</label>
+                            <input type="text" class="form-control" id="saludo" name="saludo" value="" placeholder="Correo">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2">
+
+                        </div>
+                        <button type="submit" class="btn btn-primary mb-2">Énviar</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="p-3 mb-2 bg-info text-white">
+                    <h5>Respuesta</h5>
+                    <?php
+                    // if (isset($_POST["saludo"])) {
+                    //     echo $_POST["saludo"];
+                    // } else {
+                    //     echo "Por que no saludas???";
+                    // }
+                    ?>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-6">
                 <div class="p-3 mb-2 bg-info text-white">
@@ -91,7 +121,7 @@
         <div class="row">
             <div class="col-6">
                 <div class="p-3 mb-2 bg-dark text-white">
-                    <h5>Formulario</h5>
+                    <h5>Formulario POST</h5>
 
                     <form class="form-inline" method="POST" action="#">
                         <div class="form-group mb-2">
@@ -109,15 +139,16 @@
                 <div class="p-3 mb-2 bg-info text-white">
                     <h5>Respuesta</h5>
                     <?php
-                    // if (isset($_POST["saludo"])) {
-                    //     echo $_POST["saludo"];
-                    // } else {
-                    //     echo "Por que no saludas???";
-                    // }
+                    if (isset($_POST["saludo"])) {
+                        echo $_POST["saludo"];
+                    } else {
+                        echo "Por que no saludas???";
+                    }
                     ?>
                 </div>
             </div>
         </div>
+      
 
 
         <div class="row">
