@@ -18,15 +18,66 @@
     <!-- boton fluido -->
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <h1 class="display-4">Consola de php & laravel</h1>
+            <h1 class="display-4">Consola de php </h1>
             <p class="lead"> Esto es tu consola de inicio...</p>
         </div>
     </div>
 
     <div class="container">
 
+        <?php include("person.php");
+        include("automaticacion/auto.php");
+        include('automotores/auto.php');
+        include('conexion.php');
 
-    <div class="row">
+        ?>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-2 bg-primary text-white">
+                    <h5>Conexion de Mysql y PHP.</h5>
+
+                    <?php
+
+                    $personas = $conexion->query('SELECT * from personas');
+                    foreach ($personas as $persona) {
+                        echo "Nombre Completo: " . $persona["filtsname"] . "  " . $persona["lastname"] . "<br>";
+                    }
+                    $conexion = null;
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-2 bg-info text-white ">
+                    <h5>NamesPaces</h5>
+                    <?php
+                    $automo = new \automotores\Auto('2020,', '2', '4');
+                    echo $automo->getAuto();
+
+                    $automa = new \automaticacion\Auto('Contable', 'diario', 'Mysql');
+                    echo $automa->getAuto();
+
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="p-3 mb-2 bg-success text-white">
+                    <h5>Include</h5>
+                    <?php
+                    $person = new Persona(" Duván ", " Sánchez");
+                    echo $person->greetings();
+                    ?>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-6">
                 <div class="p-3 mb-2 bg-dark text-white">
                     <h5>Formulario GET</h5>
@@ -62,17 +113,17 @@
                     <h5>Calculadora</h5>
 
                     <form class="form-inline" method="POST" action="#">
-                        <div class="form-group mx-sm-3 mb-2" >
+                        <div class="form-group mx-sm-3 mb-2">
                             <select name="opciones">
                                 <option value="0">Sumar</option>
                                 <option value="1">Restar</option>
                                 <option value="2">Multiplicar</option>
                                 <option value="3">Dividir</option>
-                            </select> 
+                            </select>
 
-                            </div >
+                        </div>
                         <div class="form-group mb-2">
-                          
+
                             <input type="number" class="form-control" id="num1" name="num1" value="" placeholder="N°">
                         </div>
                         <div class="form-group mx-sm-3 mb-2">
@@ -88,31 +139,31 @@
                     <h5>Respuesta</h5>
                     <?php
 
-                
-                include("clases.php");
-                   if(isset($_REQUEST['calcular'])){
-                       $n1 = $_REQUEST['num1'];
-                       $n2 = $_REQUEST['num2'];
-                       $op = $_REQUEST['opciones'];
 
-                       switch($op){
-                           case 0:
-                            echo "" . cAlculadora ::sumar($n1,$n2);
-                           break;
+                    include("clases.php");
+                    if (isset($_REQUEST['calcular'])) {
+                        $n1 = $_REQUEST['num1'];
+                        $n2 = $_REQUEST['num2'];
+                        $op = $_REQUEST['opciones'];
 
-                           case 1:
-                            echo "" . cAlculadora ::restar($n1,$n2);
-                           break;
+                        switch ($op) {
+                            case 0:
+                                echo "" . cAlculadora::sumar($n1, $n2);
+                                break;
 
-                           case 2:
-                            echo "" . cAlculadora ::multiplicar($n1,$n2);
-                           break;
+                            case 1:
+                                echo "" . cAlculadora::restar($n1, $n2);
+                                break;
 
-                           case 3:
-                            echo "" . cAlculadora ::dividir($n1,$n2);
-                           break;
-                       }
-                   }
+                            case 2:
+                                echo "" . cAlculadora::multiplicar($n1, $n2);
+                                break;
+
+                            case 3:
+                                echo "" . cAlculadora::dividir($n1, $n2);
+                                break;
+                        }
+                    }
 
                     ?>
                 </div>
@@ -148,7 +199,7 @@
                 </div>
             </div>
         </div>
-      
+
 
 
         <div class="row">
